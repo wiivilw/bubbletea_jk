@@ -24,19 +24,15 @@ The preparation method can be changed at runtime without changing the drink clas
 
 The Bridge Pattern separates an abstraction from its implementation so that both sides can be changed independently.
 
-In this project, the Bridge Pattern has the following structure:
+In this project:
 
-| Bridge Component | Class |
-|---|---|
-| Abstraction | `Drink` |
-| Refined Abstraction | `MilkTea` |
-| Refined Abstraction | `IceTea` |
-| Implementor | `Preparation` |
-| Concrete Implementor | `TraditionalPreparation` |
-| Concrete Implementor | `AutomaticPreparation` |
-| Client | `Main` |
+- `Drink` is the Abstraction.
+- `MilkTea` and `IceTea` are Refined Abstractions.
+- `Preparation` is the Implementor.
+- `TraditionalPreparation` and `AutomaticPreparation` are Concrete Implementors.
+- `Main` is the Client.
 
-The bridge between the two sides is created using composition.
+The bridge between the abstraction and implementation is created using composition.
 
 The `Drink` class contains a reference to the `Preparation` interface:
 
