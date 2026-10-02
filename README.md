@@ -1,45 +1,57 @@
 # Bubble Tea Customization System
 
-## About the project
+## Description
 
-This project is a simple example of the Bridge Design Pattern in Java.
+This project is a simple implementation of the Bridge Design Pattern in Java.
 
-The topic of the project is a Bubble Tea Customization System.
-The main idea is to separate the type of bubble tea from the way it is prepared.
+The project is based on a Bubble Tea Customization System. It separates the type of bubble tea from the way it is prepared.
 
-There are two types of drinks:
+The system has two types of drinks:
+
 - Milk Tea
 - Ice Tea
 
-And there are two preparation methods:
+It also has two preparation methods:
+
 - Traditional Preparation
 - Automatic Preparation
 
-The preparation method can also be changed at runtime.
+The preparation method can be changed at runtime without changing the drink classes.
 
 ---
 
-## Bridge Pattern
+## Bridge Design Pattern
 
-The Bridge Pattern separates the abstraction from its implementation.
+The Bridge Pattern separates an abstraction from its implementation so that both sides can be changed independently.
 
-In this project:
+In this project, the Bridge Pattern has the following structure:
 
-- `Drink` is the Abstraction
-- `MilkTea` and `IceTea` are Refined Abstractions
-- `Preparation` is the Implementor
-- `TraditionalPreparation` and `AutomaticPreparation` are Concrete Implementors
-- `Main` is the Client
+| Bridge Component | Class |
+|---|---|
+| Abstraction | `Drink` |
+| Refined Abstraction | `MilkTea` |
+| Refined Abstraction | `IceTea` |
+| Implementor | `Preparation` |
+| Concrete Implementor | `TraditionalPreparation` |
+| Concrete Implementor | `AutomaticPreparation` |
+| Client | `Main` |
 
-The bridge is created using composition because `Drink` contains a reference to `Preparation`.
+The bridge between the two sides is created using composition.
 
-```text
-Drink
-  |
-  | has a
-  v
-Preparation
-  |
-  +-- TraditionalPreparation
-  |
-  +-- AutomaticPreparation
+The `Drink` class contains a reference to the `Preparation` interface:
+
+```java
+protected Preparation preparation;
+
+bubbletea_jk
+│
+├── src
+│   ├── Preparation.java
+│   ├── TraditionalPreparation.java
+│   ├── AutomaticPreparation.java
+│   ├── Drink.java
+│   ├── MilkTea.java
+│   ├── IceTea.java
+│   └── Main.java
+│
+└── README.md
